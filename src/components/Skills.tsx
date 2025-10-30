@@ -15,12 +15,12 @@ const Skills = () => {
   }, []);
 
   const skills = [
-    { name: "HTML", img: "/assets/html (2).png" },
-    { name: "CSS", img: "/assets/css.png" },
-    { name: "JavaScript", img: "/assets/javascript.png" },
-    { name: "React", img: "/assets/react.png" },
-    { name: "Tailwind", img: "/assets/tailwind.png" },
-    { name: "TypeScript", img: "/assets/ts.png" },
+    { name: "HTML", img: "../assets/html (2).png" },
+    { name: "CSS", img: "../assets/css.png" },
+    { name: "JavaScript", img: "../assets/javascript.png" },
+    { name: "React", img: "../assets/react.png" },
+    { name: "Tailwind", img: "../assets/tailwind.png" },
+    { name: "TypeScript", img: "../assets/ts.png" },
   ];
 
   return (

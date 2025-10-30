@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profilePic from "/assets/profile-pic.jpg";
+import profilePic from "../assets/profile-pic.jpg";
 
 const About: React.FC = () => {
   return (
