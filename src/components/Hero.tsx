@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { useState, useEffect } from "react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, ExternalLink } from "lucide-react";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -16,77 +16,131 @@ const Hero = () => {
       } else {
         clearInterval(timer);
       }
-    }, 90);
+    }, 70);
     return () => clearInterval(timer);
   }, []);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center 
-      bg-[#0a0f1a] text-white px-6 sm:px-10 overflow-hidden"
+      className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between 
+      px-6 sm:px-12 md:px-24 lg:px-36 bg-[#0a0f1a] text-white overflow-hidden"
     >
-      {/* 🟣 Glass Glow Orbs */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-[150px] top-10 left-5 animate-pulse"></div>
-        <div className="absolute w-[300px] h-[300px] bg-purple-500/20 rounded-full blur-[150px] bottom-10 right-5 animate-pulse"></div>
+      {/* 🌌 Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none"
+        style={{ backgroundImage: `url('/assets/hero-bg.jpg')` }}
+      ></div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 sm:bg-black/40 pointer-events-none"></div>
+
+      {/* Glow Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute w-[350px] h-[350px] bg-cyan-500/25 rounded-full blur-[150px] top-10 left-10 animate-pulse"></div>
+        <div className="absolute w-[350px] h-[350px] bg-purple-500/25 rounded-full blur-[150px] bottom-10 right-10 animate-pulse"></div>
       </div>
 
-      {/* ✨ Animated Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+      {/* 🧠 Text Content */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
-        className="text-center font-extrabold tracking-tight leading-tight text-white/90 
-        text-4xl sm:text-5xl md:text-6xl max-w-[95%] sm:max-w-2xl"
+        className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-3xl mt-20 md:mt-0"
       >
-        <span
-          className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]"
+        {/* ✨ Heading */}
+        <h1
+          className="bg-[length:200%_200%] animate-gradientMove
+          text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold 
+          text-transparent bg-clip-text bg-gradient-to-r 
+          from-cyan-400 via-blue-400 to-purple-500 
+          drop-shadow-[0_0_25px_rgba(34,211,238,0.5)] tracking-tight leading-snug 
+          whitespace-normal sm:whitespace-normal md:whitespace-nowrap"
         >
           {displayText}
-        </span>
-        <span className="text-cyan-400 animate-pulse">|</span>
-      </motion.h1>
+          <span className="text-cyan-400 animate-pulse">|</span>
+        </h1>
 
-      {/* 🧠 Subtitle */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 1 }}
-        className="text-gray-400 text-center mt-5 text-base sm:text-lg max-w-lg leading-relaxed"
-      >
-        Crafting elegant, performant front-end experiences using{" "}
-        <span className="text-cyan-300 font-semibold">React</span>,{" "}
-        <span className="text-cyan-300 font-semibold">Tailwind</span>, and{" "}
-        <span className="text-cyan-300 font-semibold">TypeScript</span>. 🚀
-      </motion.p>
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-lg">
+          Crafting elegant, performant front-end experiences using{" "}
+          <span className="text-cyan-300 font-semibold">React</span>,{" "}
+          <span className="text-cyan-300 font-semibold">Tailwind</span>, and{" "}
+          <span className="text-cyan-300 font-semibold">TypeScript</span>. 🚀
+        </p>
 
-      {/* 🌈 Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center items-center">
-        <Link to="projects" smooth duration={1000} offset={-20}>
-          <motion.button
+        {/* 🔘 Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start items-center flex-wrap">
+          <Link to="projects" smooth duration={1000} offset={-20}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 rounded-xl font-medium text-white 
+              bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400
+              hover:shadow-[0_0_25px_rgba(34,211,238,0.3)] 
+              transition-all duration-300 w-[200px]"
+            >
+              View My Work
+            </motion.button>
+          </Link>
+
+          <Link to="contact" smooth duration={1000} offset={-50}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="px-8 py-3 rounded-xl font-medium text-black bg-cyan-400 
+              hover:bg-cyan-300 shadow-[0_0_25px_rgba(34,211,238,0.5)] 
+              transition-all duration-300 flex items-center justify-center gap-2 w-[200px]"
+            >
+              <Sparkles className="w-5 h-5" />
+              Hire Me
+            </motion.button>
+          </Link>
+
+          <motion.a
             whileHover={{ scale: 1.05 }}
+            href={`${import.meta.env.BASE_URL}SURENDHAR_A.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-3 rounded-xl font-medium text-white 
-            backdrop-blur-md bg-white/10 border border-white/20 
-            hover:bg-cyan-500/20 hover:shadow-[0_0_25px_rgba(34,211,238,0.3)] 
-            transition-all duration-300 w-[180px]"
+            bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500
+            hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] 
+            transition-all duration-300 w-[200px] text-center flex items-center justify-center gap-2"
           >
-            View My Work
-          </motion.button>
-        </Link>
+            <ExternalLink className="w-5 h-5" />
+            View CV
+          </motion.a>
+        </div>
+      </motion.div>
 
-        <Link to="contact" smooth duration={1000} offset={-50}>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="px-8 py-3 rounded-xl font-medium text-black bg-cyan-400 
-            hover:bg-cyan-300 shadow-[0_0_20px_rgba(34,211,238,0.5)] 
-            transition-all duration-300 flex items-center justify-center gap-2 w-[180px]"
-          >
-            <Sparkles className="w-5 h-5" />
-            Hire Me
-          </motion.button>
-        </Link>
-      </div>
+      {/* 👨‍💻 Developer Illustration (hidden on mobile) */}
+      <motion.img
+        src="./assets/right.png"
+        alt="Developer Illustration"
+        className="hidden md:block w-[400px] lg:w-[480px] xl:w-[550px] 
+        object-contain drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] 
+        animate-floating"
+        initial={{ opacity: 0, scale: 0.8, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+      />
+
+      {/* 🌈 Animations */}
+      <style>{`
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradientMove {
+          animation: gradientMove 6s ease infinite;
+        }
+
+        @keyframes floating {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+        }
+        .animate-floating {
+          animation: floating 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

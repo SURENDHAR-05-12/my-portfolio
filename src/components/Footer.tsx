@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
         className="max-w-6xl mx-auto px-6 md:px-10 text-center relative z-10"
       >
         <h3 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-rose-400 bg-clip-text text-transparent">
-          SURENDHAR A
+          SURENDHAR ARASAPPAN
         </h3>
 
         <p className="mt-2 text-gray-300 italic">

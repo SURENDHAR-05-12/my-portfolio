@@ -44,7 +44,10 @@ const About: React.FC = () => {
             <p className="text-gray-300 leading-relaxed mb-5">
               I’m <span className="text-cyan-400 font-semibold">Surendhar Arasappan</span>, a passionate Frontend Developer from Tamil Nadu.
               I love crafting responsive, elegant, and user-friendly websites using
-              modern tools like <span className="text-purple-400 font-medium">React</span>,{" "}
+              modern tools like <span className="text-purple-400 font-medium">HTML</span>,{" "}
+              <span className="text-purple-400 font-medium">CSS</span>,{" "}
+              <span className="text-purple-400 font-medium">JavaScript</span>,{" "}
+              <span className="text-purple-400 font-medium">React</span>,{" "}
               <span className="text-purple-400 font-medium">Tailwind</span>, and{" "}
               <span className="text-purple-400 font-medium">TypeScript</span>.
             </p>
