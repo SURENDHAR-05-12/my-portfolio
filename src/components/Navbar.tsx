@@ -80,7 +80,7 @@ const Navbar = () => {
                 to={item}
                 smooth
                 duration={700}
-                offset={-60}
+                offset={-50}
                 spy
                 onClick={() => setIsOpen(false)}
                 className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 

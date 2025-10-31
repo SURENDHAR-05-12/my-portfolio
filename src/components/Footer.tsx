@@ -25,9 +25,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white py-10 mt-20 border-t border-white/10 overflow-hidden">
-      {/* top glow line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-rose-500 via-blue-500 to-cyan-400"></div>
+    <footer className="relative bg-gradient-to-b from-[#060a11] via-[#05080d] to-[#020305] text-white py-10 mt-0 border-t border-white/10 overflow-hidden">
+      {/* 🌈 Smooth top divider line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-purple-500/30 via-cyan-400/60 to-purple-500/30 shadow-[0_0_12px_rgba(34,211,238,0.3)]"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -36,14 +36,17 @@ const Footer: React.FC = () => {
         viewport={{ once: true }}
         className="max-w-6xl mx-auto px-6 md:px-10 text-center relative z-10"
       >
+        {/* ✨ Name / Brand */}
         <h3 className="text-2xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-rose-400 bg-clip-text text-transparent">
           SURENDHAR ARASAPPAN
         </h3>
 
+        {/* 🌐 Tagline */}
         <p className="mt-2 text-gray-300 italic">
           Building modern web experiences with style & innovation 🚀
         </p>
 
+        {/* 🔗 Social Links */}
         <div className="flex justify-center gap-6 mt-5">
           {socials.map((s, i) => (
             <motion.a
@@ -60,17 +63,18 @@ const Footer: React.FC = () => {
           ))}
         </div>
 
+        {/* ⚡ Copyright */}
         <p className="text-sm text-gray-500 mt-6">
           © 2025{" "}
-          <span className="text-blue-400 font-medium">
+          <span className="text-cyan-400 font-medium">
             Surendhar Arasappan
           </span>{" "}
           — All rights reserved.
         </p>
       </motion.div>
 
-      {/* subtle blue glow */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.15),transparent_70%)]"></div>
+      {/* 💫 Bottom radial glow */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom,rgba(56,189,248,0.15),transparent_70%)]"></div>
     </footer>
   );
 };

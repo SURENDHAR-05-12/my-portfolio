@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white"
+      className="relative py-20 pb-28 bg-gradient-to-b from-[#0b1220] via-[#08111b] to-[#04070b] text-white"
     >
       {/* Glow background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]"></div>
