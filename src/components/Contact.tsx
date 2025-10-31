@@ -5,10 +5,9 @@ import React, { useState } from "react";
 const Contact: React.FC = () => {
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
-  // ✨ Toast popup handler
   const showToast = (message: string, type: "success" | "error") => {
     setToast({ message, type });
-    setTimeout(() => setToast(null), 3000); // auto hide after 3s
+    setTimeout(() => setToast(null), 3000);
   };
 
   const sendWhatsApp = () => {
@@ -34,10 +33,7 @@ const Contact: React.FC = () => {
     const formAction = "https://formsubmit.co/surendhar6384@gmail.com";
     const formData = new FormData(form);
 
-    fetch(formAction, {
-      method: "POST",
-      body: formData,
-    })
+    fetch(formAction, { method: "POST", body: formData })
       .then(() => {
         showToast("✅ Email sent successfully!", "success");
         form.reset();
@@ -50,10 +46,13 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-20 pb-28 bg-gradient-to-b from-[#0b1220] via-[#08111b] to-[#04070b] text-white"
+      className="relative py-20 bg-gradient-to-b from-[#0a0f1a] via-[#060b14] to-[#0a0e18] text-white overflow-hidden"
     >
-      {/* Glow background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]"></div>
+      {/* ✨ Bottom merge gradient to footer */}
+      <div className="absolute bottom-0 left-0 w-full h-[180px] bg-gradient-to-b from-transparent via-[#0a0e18]/60 to-[#0f121a] pointer-events-none"></div>
+
+      {/* Cyan glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_70%)]"></div>
 
       <div className="max-w-2xl mx-auto px-6 relative z-10">
         <motion.h2
@@ -81,7 +80,6 @@ const Contact: React.FC = () => {
             placeholder="Your Name"
             className="w-full p-3 bg-white/10 border border-white/10 rounded-lg focus:ring-2 focus:ring-cyan-400 outline-none text-gray-200 placeholder-gray-400 transition"
           />
-
           <input
             id="email"
             name="email"
@@ -90,7 +88,6 @@ const Contact: React.FC = () => {
             placeholder="Your Email"
             className="w-full p-3 bg-white/10 border border-white/10 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none text-gray-200 placeholder-gray-400 transition"
           />
-
           <textarea
             id="message"
             name="message"
@@ -121,7 +118,7 @@ const Contact: React.FC = () => {
         </motion.form>
       </div>
 
-      {/* 🌟 Modern Toast Message */}
+      {/* Toast message */}
       {toast && (
         <motion.div
           initial={{ opacity: 0, y: 40 }}
