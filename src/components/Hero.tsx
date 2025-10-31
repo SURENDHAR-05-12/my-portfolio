@@ -26,12 +26,7 @@ const Hero = () => {
       className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between 
       px-6 sm:px-12 md:px-24 lg:px-36 bg-[#0a0f1a] text-white overflow-hidden"
     >
-      {/* 🌌 Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none"
-        style={{ backgroundImage: `url('/assets/hero-bg.jpg')` }}
-      ></div>
-
+     
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 sm:bg-black/40 pointer-events-none"></div>
 
@@ -110,18 +105,6 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* 👨‍💻 Developer Illustration (hidden on mobile) */}
-      <motion.img
-        src="./assets/right.png"
-        alt="Developer Illustration"
-        className="hidden md:block w-[400px] lg:w-[480px] xl:w-[550px] 
-        object-contain drop-shadow-[0_0_20px_rgba(34,211,238,0.3)] 
-        animate-floating"
-        initial={{ opacity: 0, scale: 0.8, y: 30 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-      />
-
       {/* 🌈 Animations */}
       <style>{`
         @keyframes gradientMove {
@@ -133,13 +116,7 @@ const Hero = () => {
           animation: gradientMove 6s ease infinite;
         }
 
-        @keyframes floating {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-        }
-        .animate-floating {
-          animation: floating 4s ease-in-out infinite;
-        }
+        
       `}</style>
     </section>
   );
