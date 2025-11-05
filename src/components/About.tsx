@@ -34,9 +34,6 @@ const About: React.FC = () => {
 
           {/* Text section */}
           <div className="md:w-2/3 w-full">
-            <h5 className="text-sm text-cyan-400 tracking-widest mb-3 uppercase">
-              My Introduction
-            </h5>
             <h2 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               About Me
             </h2>
