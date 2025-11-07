@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
 
         {/* 💬 Tagline */}
         <p className="mt-2 text-gray-300 italic text-sm sm:text-base">
-          Building modern web experiences with style & innovation 🚀
+          Building modern web experiences with style & innovation 
         </p>
 
         {/* 🔗 Social Links */}
