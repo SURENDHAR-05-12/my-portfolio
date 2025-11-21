@@ -8,12 +8,6 @@ const Projects = () => {
       img: "./assets/portfolio.png",
       link: "https://surendhar-05-12.github.io/my-portfolio/",
     },
-    {
-      title: "Online Ticket Booking",
-      desc: "An interactive booking UI with scroll effects and dynamic components.",
-      img: "./assets/bus.jpg",
-      link: "https://surendhar-05-12.github.io/GoBus/",
-    },
   ];
 
   return (
