@@ -23,10 +23,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col md:flex-row items-center justify-center md:justify-between 
-      px-6 sm:px-12 md:px-24 lg:px-36 bg-[#0a0f1a] text-white overflow-hidden"
+      style={{ backgroundImage: `url(${"./assets/developer.jpg"})` }}
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex flex-col md:flex-row items-center justify-center md:justify-between 
+  px-6 sm:px-12 md:px-24 lg:px-36 text-white overflow-hidden"
     >
-     
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60 sm:bg-black/40 pointer-events-none"></div>
 
