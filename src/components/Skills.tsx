@@ -21,6 +21,7 @@ const Skills = () => {
     { name: "React", img: "./assets/react.png" },
     { name: "Tailwind", img: "./assets/tailwind.png" },
     { name: "TypeScript", img: "./assets/ts.png" },
+    { name: "Flutter", img: "./assets/flutter.png" },
   ];
 
   return (
@@ -39,7 +40,7 @@ const Skills = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: i * 0.2 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="skill-card bg-white/5 px-6 py-6 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.3)] transform hover:scale-110 hover:-rotate-1 transition-all duration-500 flex flex-col items-center"
           >
             <motion.img

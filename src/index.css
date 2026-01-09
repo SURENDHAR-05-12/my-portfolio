@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.perspective-1000 {
+  perspective: 1000px;
+}
+
 /* html {
   scroll-behavior: smooth;
 } */
@@ -17,8 +21,6 @@ body {
   transition: all 1s ease;
 }
 
-
-
 @keyframes blink {
   50% {
     opacity: 0;
@@ -28,10 +30,9 @@ body {
   animation: blink 1s step-start infinite;
 }
 
-
-
 @keyframes subtleGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     transform: scale(1);
   }
