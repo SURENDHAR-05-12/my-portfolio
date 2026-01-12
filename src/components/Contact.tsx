@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, CheckCircle2, XCircle } from "lucide-react";
+import { Mail, MessageCircle, CheckCircle2, XCircle, MapPin, Phone, Send } from "lucide-react";
 import React, { useState } from "react";
 
 const Contact: React.FC = () => {
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
-  // ✨ Toast popup handler
   const showToast = (message: string, type: "success" | "error") => {
     setToast({ message, type });
-    setTimeout(() => setToast(null), 3000); // auto hide after 3s
+    setTimeout(() => setToast(null), 3000);
   };
 
   const sendWhatsApp = () => {
@@ -22,7 +21,7 @@ const Contact: React.FC = () => {
     }
 
     const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-    const phone = "916384024943";
+    const phone = "+916384024943";
     const link = `https://wa.me/${phone}?text=${text}`;
     window.open(link, "_blank");
     showToast("Opening WhatsApp...", "success");
@@ -50,98 +49,174 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-20 pb-40 bg-gradient-to-b from-[#0b1220] via-[#08111b] to-[#04070b] text-white"
+      className="relative py-24 bg-[#0a0a0a] text-white overflow-hidden"
     >
-      {/* Glow background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]"></div>
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+          >
+            Get In Touch
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-400 text-lg"
+          >
+            Let's discuss your next project
+          </motion.p>
+        </div>
 
-      <div className="max-w-2xl mx-auto px-6 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-4xl font-extrabold mb-10 text-center bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
-        >
-          Get In Touch
-        </motion.h2>
-
-        <motion.form
-          onSubmit={handleFormSubmit}
+        {/* 💎 Premium Card */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="backdrop-blur-lg bg-white/5 border border-white/10 p-8 rounded-2xl shadow-xl space-y-5"
+          className="relative group rounded-3xl p-[1px]" // Border wrapper
         >
-          <input
-            id="name"
-            name="name"
-            required
-            placeholder="Your Name"
-            className="w-full p-3 bg-white/10 border border-white/10 rounded-lg focus:ring-2 focus:ring-cyan-400 outline-none text-gray-200 placeholder-gray-400 transition"
-          />
+          {/* Animated Gradient Border */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500 rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-xy"></div>
+          
+          {/* Main Card Content */}
+          <div className="relative bg-[#111] rounded-3xl p-6 md:p-12 overflow-hidden">
+            
+            {/* Contact Info Row */}
+            <div className="mb-12 pb-12 border-b border-white/10">
+                <div className="flex flex-col md:flex-row flex-wrap justify-center gap-8 md:gap-12 max-w-fit mx-auto md:max-w-full">
+                    
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-cyan-500/10 rounded-full text-cyan-400 shrink-0">
+                        <Mail className="w-5 h-5" />
+                        </div>
+                        <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Email</p>
+                        <p className="font-medium text-gray-200 break-all md:break-normal">surendhar6384@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-purple-500/10 rounded-full text-purple-400 shrink-0">
+                        <Phone className="w-5 h-5" />
+                        </div>
+                        <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Phone</p>
+                        <p className="font-medium text-gray-200">+91 63840 24943</p>
+                        </div>
+                    </div>
 
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="Your Email"
-            className="w-full p-3 bg-white/10 border border-white/10 rounded-lg focus:ring-2 focus:ring-purple-400 outline-none text-gray-200 placeholder-gray-400 transition"
-          />
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-emerald-500/10 rounded-full text-emerald-400 shrink-0">
+                        <MapPin className="w-5 h-5" />
+                        </div>
+                        <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Location</p>
+                        <p className="font-medium text-gray-200">Karur, Tamil Nadu</p>
+                        </div>
+                    </div>
 
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            required
-            placeholder="Your Message"
-            className="w-full p-3 bg-white/10 border border-white/10 rounded-lg focus:ring-2 focus:ring-cyan-400 outline-none text-gray-200 placeholder-gray-400 transition resize-none"
-          />
+                </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              type="button"
-              onClick={sendWhatsApp}
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-400 text-white font-semibold rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition"
-            >
-              <MessageCircle className="w-5 h-5" /> WhatsApp
-            </motion.button>
+            {/* Form */}
+            <form onSubmit={handleFormSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full bg-[#1a1a1a] border border-[#333] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full bg-[#1a1a1a] border border-[#333] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                    placeholder="Enter your email"
+                  />
+                </div>
+              </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              type="submit"
-              className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition"
-            >
-              <Mail className="w-5 h-5" /> Send Email
-            </motion.button>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  required
+                  className="w-full bg-[#1a1a1a] border border-[#333] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors resize-none"
+                  placeholder="Enter your message"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center justify-center gap-2"
+                >
+                  <Send className="w-5 h-5" /> Send Message
+                </motion.button>
+                
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="button"
+                  onClick={sendWhatsApp}
+                  className="px-8 py-4 bg-[#212121] text-[#25D366] font-semibold rounded-xl border border-[#333] hover:bg-[#2a2a2a] transition-colors flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" /> WhatsApp
+                </motion.button>
+              </div>
+            </form>
           </div>
-        </motion.form>
+        </motion.div>
       </div>
 
-      {/* 🌟 Modern Toast Message */}
-      {toast && (
+       {/* 🌟 Toast */}
+       {toast && (
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 40 }}
-          className={`fixed bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 rounded-xl flex items-center gap-2 text-white shadow-lg 
+          className={`fixed bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 rounded-full flex items-center gap-3 text-white shadow-2xl z-50 border border-white/10
           ${
             toast.type === "success"
-              ? "bg-gradient-to-r from-green-500 to-emerald-500"
-              : "bg-gradient-to-r from-red-500 to-rose-500"
+              ? "bg-[#111] border-green-500/50 text-green-400"
+              : "bg-[#111] border-red-500/50 text-red-400"
           }`}
         >
-          {toast.type === "success" ? (
-            <CheckCircle2 className="w-5 h-5" />
-          ) : (
-            <XCircle className="w-5 h-5" />
-          )}
-          <span className="font-medium">{toast.message}</span>
+          {toast.type === "success" ? <CheckCircle2 className="w-5 h-5" /> : <XCircle className="w-5 h-5" />}
+          <span className="font-medium text-gray-200">{toast.message}</span>
         </motion.div>
       )}
+
+      {/* Animation Styles */}
+      <style>{`
+        @keyframes gradient-xy {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-gradient-xy {
+          background-size: 200% 200%;
+          animation: gradient-xy 6s ease infinite;
+        }
+      `}</style>
     </section>
   );
 };

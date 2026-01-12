@@ -1,84 +1,93 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram } from "lucide-react";
-import React from "react";
+import { Github, Linkedin, Instagram, Mail, ArrowUp } from "lucide-react";
+import { Link } from "react-scroll";
 
-const Footer: React.FC = () => {
-  const socials = [
-    {
-      icon: <Github className="w-6 h-6" />,
-      href: "https://github.com/SURENDHAR-05-12",
-      label: "GitHub",
-      color: "hover:text-blue-300",
-    },
-    {
-      icon: <Linkedin className="w-6 h-6" />,
-      href: "https://www.linkedin.com/in/surendhar0512/",
-      label: "LinkedIn",
-      color: "hover:text-sky-400",
-    },
-    {
-      icon: <Instagram className="w-6 h-6" />,
-      href: "https://www.instagram.com/itz._.snow_/",
-      label: "Instagram",
-      color: "hover:text-rose-400",
-    },
+const Footer = () => {
+  const socialLinks = [
+    { icon: Github, href: "https://github.com/SURENDHAR-05-12", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/surendhar0512/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/itz._.snow_/", label: "Instagram" },
+    { icon: Mail, href: "mailto:surendhar6384@gmail.com", label: "Email" },
+  ];
+
+  const navLinks = [
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Skills", to: "skills" },
+    { name: "Projects", to: "projects" },
+    { name: "Contact", to: "contact" },
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#0f121a] via-[#0d1119] to-[#05070d] text-white py-10 mt-0 border-t border-white/10 overflow-hidden">
-      {/* 🌈 Top divider glow */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-purple-500/30 via-cyan-400/60 to-purple-500/30 shadow-[0_0_12px_rgba(34,211,238,0.3)]"></div>
+    <footer className="relative bg-[#05070d] text-white py-12 border-t border-white/10 overflow-hidden">
+      
+      {/* � Background Glows */}
+      <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-      {/* 💫 Radial background blend */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom,rgba(56,189,248,0.12),transparent_80%)]"></div>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+          
+          {/* � Brand & Copyright */}
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              Surendhar Arasappan
+            </h2>
+            <p className="text-gray-400 text-sm mb-4">
+              Building digital experiences that matter.
+            </p>
+            <p className="text-gray-600 text-xs">
+              &copy; {new Date().getFullYear()} All rights reserved.
+            </p>
+          </div>
 
-      {/* ✨ Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6 md:px-10 text-center relative z-10"
-      >
-        {/* 🌟 Name */}
-        <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-400 via-cyan-400 to-rose-400 bg-clip-text text-transparent">
-          SURENDHAR ARASAPPAN
-        </h3>
+          {/* 🔗 Quick Links & Socials */}
+          <div className="flex flex-col items-center md:items-end gap-6">
+            
+            {/* Navigation */}
+            <div className="flex flex-wrap justify-center gap-6">
+              {navLinks.map((link, i) => (
+                <Link
+                  key={i}
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  className="text-sm text-gray-400 hover:text-cyan-400 cursor-pointer transition-colors font-medium"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
-        {/* 💬 Tagline */}
-        <p className="mt-2 text-gray-300 italic text-sm sm:text-base">
-          Building modern web experiences with style & innovation 
-        </p>
+            {/* Social Icons */}
+            <div className="flex gap-4">
+              {socialLinks.map((social, i) => (
+                <motion.a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="p-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all"
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
+            </div>
 
-        {/* 🔗 Social Links */}
-        <div className="flex justify-center gap-6 mt-5">
-          {socials.map((s, i) => (
-            <motion.a
-              key={i}
-              href={s.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={s.label}
-              whileHover={{ scale: 1.2, rotate: 5 }}
-              className={`transition ${s.color}`}
-            >
-              {s.icon}
-            </motion.a>
-          ))}
+          </div>
+
         </div>
 
-        {/* ⚡ Copyright */}
-        <p className="text-sm text-gray-500 mt-6">
-          © 2025{" "}
-          <span className="text-cyan-400 font-medium">
-            Surendhar Arasappan
-          </span>{" "}
-          — All rights reserved.
-        </p>
-      </motion.div>
+        {/* ⬆️ Back to Top Button */}
+        <div className="flex justify-center mt-12 md:hidden">
+            <Link to="home" smooth={true} duration={800} className="p-3 bg-white/5 border border-white/10 rounded-full text-cyan-400 cursor-pointer">
+                <ArrowUp className="w-5 h-5"/>
+            </Link>
+        </div>
 
-      {/* 🩵 Extended smooth bottom glow (fixes black cutoff on mobile) */}
-      <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-b from-transparent via-[#020617]/80 to-[#000000] pointer-events-none"></div>
+      </div>
     </footer>
   );
 };

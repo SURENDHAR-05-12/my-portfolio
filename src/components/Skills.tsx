@@ -1,63 +1,96 @@
 import { motion } from "framer-motion";
-import ScrollReveal from "scrollreveal";
-import { useEffect } from "react";
+
+const skillsData = [
+  {
+    category: "Frontend Ecosystem",
+    skills: [
+      { name: "HTML", img: "./assets/html (2).png" },
+      { name: "CSS", img: "./assets/css.png" },
+      { name: "JavaScript", img: "./assets/javascript.png" },
+      { name: "React", img: "./assets/react.png" },
+      { name: "TypeScript", img: "./assets/ts.png" },
+      { name: "Tailwind", img: "./assets/tailwind.png" },
+    ]
+  },
+  {
+    category: "Mobile & Others",
+    skills: [
+      { name: "Flutter", img: "./assets/flutter.png" },
+      { name: "Dart", img: "./assets/dart.png" },
+      { name: "REST API", img: "./assets/rest.png" },
+    ]
+  },
+];
 
 const Skills = () => {
-  useEffect(() => {
-    ScrollReveal().reveal(".skill-card", {
-      duration: 1000,
-      distance: "40px",
-      origin: "bottom",
-      easing: "ease-in-out",
-      interval: 150,
-      reset: false,
-    });
-  }, []);
-
-  const skills = [
-    { name: "HTML", img: "./assets/html (2).png" },
-    { name: "CSS", img: "./assets/css.png" },
-    { name: "JavaScript", img: "./assets/javascript.png" },
-    { name: "React", img: "./assets/react.png" },
-    { name: "Tailwind", img: "./assets/tailwind.png" },
-    { name: "TypeScript", img: "./assets/ts.png" },
-    { name: "Flutter", img: "./assets/flutter.png" },
-  ];
-
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gradient-to-b from-black to-gray-900 text-center text-white"
-    >
-      <h2 className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent">
-        My Skills
-      </h2>
+    <section id="skills" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden">
+      
+      {/* 🌟 Background Elements */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
 
-      <div className="flex flex-wrap justify-center gap-10 px-8">
-        {skills.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            viewport={{ once: false }}
-            className="skill-card bg-white/5 px-6 py-6 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.3)] transform hover:scale-110 hover:-rotate-1 transition-all duration-500 flex flex-col items-center"
-          >
-            <motion.img
-              whileHover={{
-                rotate: 5,
-                scale: 1.15,
-                transition: { type: "spring", stiffness: 200 },
-              }}
-              src={s.img}
-              alt={s.name}
-              className="w-16 h-16 object-contain mb-3"
-            />
-            <p className="text-lg font-semibold group-hover:text-cyan-400 transition-colors">
-              {s.name}
-            </p>
-          </motion.div>
-        ))}
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Technical <span className="text-cyan-400">Proficiency</span>
+          </h2>
+          <p className="text-gray-400 text-lg">
+            A curated list of technologies I use to build amazing products.
+          </p>
+        </motion.div>
+
+        <div className="space-y-16">
+          {skillsData.map((category, catIndex) => (
+            <div key={catIndex}>
+              <motion.h3 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="text-2xl font-bold mb-8 pl-4 border-l-4 border-cyan-500 text-gray-200"
+              >
+                {category.category}
+              </motion.h3>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {category.skills.map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ 
+                      y: -5,
+                      boxShadow: "0 10px 30px -10px rgba(6,182,212,0.3)",
+                      borderColor: "rgba(34,211,238,0.5)"
+                    }}
+                    className="group bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 backdrop-blur-sm cursor-default transition-all duration-300"
+                  >
+                    <div className="relative w-16 h-16 flex items-center justify-center bg-white/5 rounded-full mb-2 group-hover:scale-110 transition-transform duration-300">
+                      <img 
+                        src={skill.img} 
+                        alt={skill.name} 
+                        className="w-10 h-10 object-contain drop-shadow-lg" 
+                      />
+                    </div>
+                    <span className="text-lg font-medium text-gray-300 group-hover:text-white transition-colors">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

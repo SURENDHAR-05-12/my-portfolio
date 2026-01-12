@@ -1,124 +1,90 @@
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import { useState, useEffect } from "react";
-import { Sparkles, ExternalLink } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
-  const [displayText, setDisplayText] = useState("");
-  const fullText = "Hi, I'm Surendhar Arasappan";
-
-  useEffect(() => {
-    let i = 0;
-    const timer = setInterval(() => {
-      if (i < fullText.length) {
-        setDisplayText(fullText.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 70);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section
       id="home"
-      style={{ backgroundImage: `url(${"./assets/developer.jpg"})` }}
-      className="relative min-h-screen bg-cover bg-center bg-no-repeat flex flex-col md:flex-row items-center justify-center md:justify-between 
-  px-6 sm:px-12 md:px-24 lg:px-36 text-white overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-28 md:pt-0 bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: `url("./assets/developer.jpg")` }}
     >
+      {/* Dark Overlay for readability */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60 sm:bg-black/40 pointer-events-none"></div>
-
-      {/* Glow Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[350px] h-[350px] bg-cyan-500/25 rounded-full blur-[150px] top-10 left-10 animate-pulse"></div>
-        <div className="absolute w-[350px] h-[350px] bg-purple-500/25 rounded-full blur-[150px] bottom-10 right-10 animate-pulse"></div>
-      </div>
-
-      {/* 🧠 Text Content */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 flex flex-col items-center md:items-start text-center md:text-left space-y-6 max-w-3xl mt-20 md:mt-0"
-      >
-        {/* ✨ Heading */}
-        <h1
-          className="bg-[length:200%_200%] animate-gradientMove
-          text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold 
-          text-transparent bg-clip-text bg-gradient-to-r 
-          from-cyan-400 via-blue-400 to-purple-500 
-          drop-shadow-[0_0_25px_rgba(34,211,238,0.5)] tracking-tight leading-snug 
-          whitespace-normal sm:whitespace-normal md:whitespace-nowrap"
+      {/* 🌟 Spotlight Effect behind text */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      
+      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+        
+        {/* Avaliable Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-cyan-400 font-medium hover:bg-white/10 transition-colors cursor-default"
         >
-          {displayText}
-          <span className="text-cyan-400 animate-pulse">|</span>
-        </h1>
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+          </span>
+          Available for new projects
+        </motion.div>
 
-        <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-lg">
-          Crafting elegant, performant front-end experiences using{" "}
-          <span className="text-cyan-300 font-semibold">React</span>,{" "}
-          <span className="text-cyan-300 font-semibold">Tailwind</span>, and{" "}
-          <span className="text-cyan-300 font-semibold">TypeScript</span>. 🚀
-        </p>
+        {/* 🧛 Main Heading */}
+        <motion.div
+           initial={{ opacity: 0, scale: 0.95 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-2">
+            Hi, I'm <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+              Surendhar Arasappan
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed">
+            I craft <span className="text-gray-100 font-semibold">pixel-perfect</span> websites and <span className="text-gray-100 font-semibold">high-performance</span> mobile apps with a focus on motion and usability.
+          </p>
+        </motion.div>
 
-        {/* 🔘 Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start items-center flex-wrap">
+        {/* 🔘 Actions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+        >
           <Link to="projects" smooth duration={1000} offset={-20}>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="px-8 py-3 rounded-xl font-medium text-white 
-              bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400
-              hover:shadow-[0_0_25px_rgba(34,211,238,0.3)] 
-              transition-all duration-300 w-[200px]"
-            >
-              View My Work
-            </motion.button>
+            <button className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-all flex items-center gap-2 group">
+              View Work 
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
           </Link>
-
-          <Link to="contact" smooth duration={1000} offset={-50}>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="px-8 py-3 rounded-xl font-medium text-black bg-cyan-400 
-              hover:bg-cyan-300 shadow-[0_0_25px_rgba(34,211,238,0.5)] 
-              transition-all duration-300 flex items-center justify-center gap-2 w-[200px]"
-            >
-              <Sparkles className="w-5 h-5" />
-              Hire Me
-            </motion.button>
-          </Link>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
+          
+          <a
             href={`${import.meta.env.BASE_URL}SURENDHAR_A.pdf`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 rounded-xl font-medium text-white 
-            bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500
-            hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] 
-            transition-all duration-300 w-[200px] text-center flex items-center justify-center gap-2"
           >
-            <ExternalLink className="w-5 h-5" />
-            View CV
-          </motion.a>
-        </div>
-      </motion.div>
+             <button className="px-8 py-4 rounded-full bg-white/10 border border-white/10 backdrop-blur-md text-white font-bold text-lg hover:bg-white/20 transition-all flex items-center gap-2">
+               Download CV <Download className="w-5 h-5" />
+             </button>
+          </a>
+        </motion.div>
 
-      {/* 🌈 Animations */}
-      <style>{`
-        @keyframes gradientMove {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradientMove {
-          animation: gradientMove 6s ease infinite;
-        }
+        {/* � Socials (Minimal) */}
+        <motion.div
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ duration: 1, delay: 0.6 }}
+           className="flex items-center justify-center gap-6 pt-8 text-gray-500"
+        >
+           <a href="https://github.com/SURENDHAR-05-12" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Github className="w-6 h-6" /></a>
+           <a href="https://www.linkedin.com/in/surendhar0512/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors"><Linkedin className="w-6 h-6" /></a>
+           <a href="mailto:surendhar6384@gmail.com" className="hover:text-purple-400 transition-colors"><Mail className="w-6 h-6" /></a>
+        </motion.div>
 
-        
-      `}</style>
+      </div>
     </section>
   );
 };
