@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, CheckCircle2, XCircle, MapPin, Phone, Send } from "lucide-react";
 import React, { useState } from "react";
@@ -27,23 +28,31 @@ const Contact: React.FC = () => {
     showToast("Opening WhatsApp...", "success");
   };
 
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
-    const formAction = "https://formsubmit.co/surendhar6384@gmail.com";
     const formData = new FormData(form);
+    
+    formData.append("access_key", "e45afc92-b0bd-420e-b9a8-4aeb06c527fd");
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-    fetch(formAction, {
-      method: "POST",
-      body: formData,
-    })
-      .then(() => {
+      const data = await response.json();
+
+      if (data.success) {
         showToast("✅ Email sent successfully!", "success");
         form.reset();
-      })
-      .catch(() => {
+      } else {
+        console.error("Web3Forms Error:", data);
         showToast("❌ Failed to send email. Try again!", "error");
-      });
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      showToast("❌ Failed to send email. Try again!", "error");
+    }
   };
 
   return (
