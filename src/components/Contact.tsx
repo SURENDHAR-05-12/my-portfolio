@@ -79,7 +79,7 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-gray-400 text-lg"
           >
-            Let's discuss your next project
+            My inbox is always open
           </motion.p>
         </div>
 

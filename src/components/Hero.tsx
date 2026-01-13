@@ -42,8 +42,8 @@ const Hero = () => {
               Surendhar Arasappan
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 mt-6 max-w-2xl mx-auto leading-relaxed">
-            I craft <span className="text-gray-100 font-semibold">pixel-perfect</span> websites and <span className="text-gray-100 font-semibold">high-performance</span> mobile apps with a focus on motion and usability.
+          <p className="text-xl md:text-2xl text-gray-400 mt-6 max-w-3xl mx-auto leading-relaxed">
+            Just a guy who loves building cool stuff for the <span className="text-gray-100 font-semibold">web</span> and <span className="text-gray-100 font-semibold">mobile</span>.
           </p>
         </motion.div>
 
