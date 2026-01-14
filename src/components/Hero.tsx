@@ -6,11 +6,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-28 md:pt-0 bg-cover bg-center bg-no-repeat bg-fixed"
-      style={{ backgroundImage: `url("./assets/developer.jpg")` }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-28 md:pt-0"
     >
-      {/* Dark Overlay for readability */}
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
 
       {/* 🌟 Spotlight Effect behind text */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
@@ -28,7 +25,7 @@ const Hero = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
           </span>
-          Available for new projects
+          Ready to Collaborate
         </motion.div>
 
         {/* 🧛 Main Heading */}
