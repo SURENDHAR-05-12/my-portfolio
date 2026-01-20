@@ -111,7 +111,7 @@ const Projects = () => {
     {
       title: "Portfolio Website",
       desc: "A React + Tailwind portfolio with smooth animations and transitions.",
-      img: "./assets/portfolio.png",
+      img: "/assets/portfolio.png",
       link: "https://surendhar-05-12.github.io/my-portfolio/",
     },
   ];

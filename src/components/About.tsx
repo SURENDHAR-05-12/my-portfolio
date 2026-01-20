@@ -138,6 +138,7 @@ const About: React.FC = () => {
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ 
                     scale: 1.1, 

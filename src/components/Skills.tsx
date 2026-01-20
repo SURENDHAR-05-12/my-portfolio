@@ -4,20 +4,20 @@ const skillsData = [
   {
     category: "Frontend Ecosystem",
     skills: [
-      { name: "HTML", img: "./assets/html (2).png" },
-      { name: "CSS", img: "./assets/css.png" },
-      { name: "JavaScript", img: "./assets/javascript.png" },
-      { name: "React", img: "./assets/react.png" },
-      { name: "TypeScript", img: "./assets/ts.png" },
-      { name: "Tailwind", img: "./assets/tailwind.png" },
+      { name: "HTML", img: "/assets/html (2).png" },
+      { name: "CSS", img: "/assets/css.png" },
+      { name: "JavaScript", img: "/assets/javascript.png" },
+      { name: "React", img: "/assets/react.png" },
+      { name: "TypeScript", img: "/assets/ts.png" },
+      { name: "Tailwind", img: "/assets/tailwind.png" },
     ]
   },
   {
     category: "Mobile & Others",
     skills: [
-      { name: "Flutter", img: "./assets/flutter.png" },
-      { name: "Dart", img: "./assets/dart.png" },
-      { name: "REST API", img: "./assets/rest.png" },
+      { name: "Flutter", img: "/assets/flutter.png" },
+      { name: "Dart", img: "/assets/dart.png" },
+      { name: "REST API", img: "/assets/rest.png" },
     ]
   },
 ];
@@ -65,7 +65,7 @@ const Skills = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ 
                       y: -5,
