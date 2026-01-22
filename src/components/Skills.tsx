@@ -24,7 +24,7 @@ const skillsData = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-[#0a0a0a] text-white relative overflow-hidden">
+    <section id="skills" className="py-24 bg-transparent text-white relative overflow-hidden">
       
       {/* 🌟 Background Elements */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>

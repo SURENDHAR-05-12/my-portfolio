@@ -119,7 +119,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-b from-[#06090f] via-[#0a101a] to-black text-white text-center overflow-hidden"
+      className="pt-32 pb-20 relative z-10 bg-transparent text-white text-center overflow-hidden"
     >
       {/* 🔹 Section Heading */}
       <motion.h2

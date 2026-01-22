@@ -39,7 +39,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white overflow-hidden"
+      className="relative py-20 bg-transparent text-white overflow-hidden"
     >
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_50%)]"></div>

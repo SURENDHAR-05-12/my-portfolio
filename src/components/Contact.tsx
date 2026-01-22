@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-[#0a0a0a] text-white overflow-hidden"
+      className="relative py-24 bg-transparent text-white overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
