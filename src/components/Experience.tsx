@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, Building2, Award, ExternalLink, CheckCircle2 } from "lucide-react";
+import { Briefcase, Calendar, Building2, Award, ExternalLink, CheckCircle2, Laptop } from "lucide-react";
 
 const Experience = () => {
   const skills = [
@@ -52,8 +52,8 @@ const Experience = () => {
             
             {/* Timeline Left Section (Desktop) */}
             <div className="hidden md:flex flex-col items-center">
-              <div className="w-20 h-20 bg-white/10 border border-cyan-500/30 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:border-cyan-400/50 transition-all duration-500 overflow-hidden p-2">
-                <img src="/assets/UI logo.png" alt="Umaiyaal Infotech Logo" className="w-full h-full object-contain drop-shadow-md" />
+              <div className="w-20 h-20 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:border-cyan-400/50 transition-all duration-500 p-2">
+                <Laptop className="w-10 h-10 text-cyan-400" />
               </div>
               {/* Vertical Timeline Line */}
               <div className="w-[2px] h-full bg-gradient-to-b from-cyan-500/50 to-transparent mt-6 rounded-full group-hover:from-cyan-400 transition-colors duration-500"></div>
@@ -69,14 +69,14 @@ const Experience = () => {
                     Flutter Developer Intern
                   </h3>
                   <div className="flex flex-wrap items-center gap-4 mt-3 text-gray-300">
-                    <span className="flex items-center gap-2 font-medium">
+                    {/* <span className="flex items-center gap-2 font-medium">
                       <img src="/assets/UI logo.png" alt="Company Logo" className="w-5 h-5 object-contain md:hidden" />
                       Umaiyaal Infotech
                     </span>
-                    <span className="hidden md:inline text-gray-600">•</span>
+                    <span className="hidden md:inline text-gray-600">•</span> */}
                     <span className="flex items-center gap-2 text-purple-400">
                       <Calendar className="w-5 h-5" />
-                      September 2025 – June 2026
+                      January 2026 – June 2026
                     </span>
                   </div>
                 </div>
@@ -123,7 +123,7 @@ const Experience = () => {
                   <Award className="w-5 h-5" />
                   View Certificate
                 </a> */}
-                <a 
+                {/* <a 
                   href="https://www.umaiyaalinfotech.com/" 
                   target="_blank"
                   rel="noopener noreferrer"
@@ -131,7 +131,7 @@ const Experience = () => {
                 >
                   Visit Company
                   <ExternalLink className="w-4 h-4" />
-                </a>
+                </a> */}
               </div>
 
             </div>
